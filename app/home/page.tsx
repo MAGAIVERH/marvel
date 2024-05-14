@@ -1,7 +1,13 @@
-import Menu from "../_components/menu";
+import Header from "../_components/header";
+import Personagens from "../_components/personagens";
 
 const HomePage = () => {
-  return <Menu />;
+  return (
+    <>
+      <Header />
+      <Personagens />
+    </>
+  );
 };
 
 export default HomePage;

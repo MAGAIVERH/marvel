@@ -10,6 +10,7 @@ import {
   MenuWrapper,
   UserCircle,
 } from "../styles/menu";
+import Link from "next/link";
 
 const Menu = () => {
   return (
@@ -17,7 +18,9 @@ const Menu = () => {
       <MenuWrapper>
         <Logo>MARVEL</Logo>
         <MenuItems>
-          <MenuItem>Personagens</MenuItem>
+          <Link href="/personagens">
+            <MenuItem>Personagens</MenuItem>
+          </Link>
           <MenuItem>Filmes</MenuItem>
           <MenuItem>HQs</MenuItem>
         </MenuItems>

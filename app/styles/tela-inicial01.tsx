@@ -72,15 +72,12 @@ const slideFromLeftAnimation = keyframes`
 export const Form = styled.form<FormProps>`
   position: absolute;
   top: 35%;
-  left: ${({ showForm }) =>
-    showForm
-      ? "24%"
-      : "-100%"}; /* Inicialmente, o formulário está fora da tela à esquerda */
+  left: ${({ showForm }) => (showForm ? "24%" : "-100%")};
   transform: translate(50%, -50%);
 
   padding: 20px;
   border-radius: 10px;
-  animation: ${slideFromLeftAnimation} 6s forwards; /* Adicionando a nova animação de deslizamento da esquerda para a direita */
+  animation: ${slideFromLeftAnimation} 6s forwards;
 
   h1 {
     color: #d32f2f;
@@ -168,6 +165,6 @@ export const DuasCores = styled.div`
   }
 
   span {
-    color: #d32f2f; /* Cor para "Esqueci minha senha" */
+    color: #d32f2f;
   }
 `;

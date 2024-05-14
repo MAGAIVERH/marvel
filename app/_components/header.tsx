@@ -1,5 +1,7 @@
+import Menu from "./menu";
+
 const Header = () => {
-  return <div>header</div>;
+  return <Menu />;
 };
 
 export default Header;
