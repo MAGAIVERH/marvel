@@ -62,22 +62,36 @@ const slideFromLeftAnimation = keyframes`
     opacity: 0;
     transform: translateX(-200%);
   }
-  
+
   to {
     opacity: 1;
     transform: translateX(-50%);
   }
 `;
 
+const slideOutAnimation = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-200%);
+  }
+`;
+
 export const Form = styled.form<FormProps>`
   position: absolute;
   top: 35%;
-  left: ${({ showForm }) => (showForm ? "24%" : "-100%")};
+  left: ${({ showForm }) => (showForm ? "24%" : "50%")};
   transform: translate(50%, -50%);
 
   padding: 20px;
   border-radius: 10px;
-  animation: ${slideFromLeftAnimation} 6s forwards;
+  animation: ${({ showForm }) =>
+      showForm ? slideFromLeftAnimation : slideOutAnimation}
+    5s forwards;
 
   h1 {
     color: #d32f2f;
@@ -166,5 +180,48 @@ export const DuasCores = styled.div`
 
   span {
     color: #d32f2f;
+  }
+`;
+
+export const SegundoForm = styled.div`
+  width: 350px;
+  h1 {
+    text-align: center;
+    color: #d32f2f;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-left: 10px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    color: black;
+    background-color: white;
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    font-size: 22px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    cursor: pointer;
   }
 `;
