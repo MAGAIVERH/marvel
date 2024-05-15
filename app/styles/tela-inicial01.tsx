@@ -184,7 +184,7 @@ export const DuasCores = styled.div`
 `;
 
 export const SegundoForm = styled.div`
-  width: 350px;
+  width: 330px;
   h1 {
     text-align: center;
     color: #d32f2f;
