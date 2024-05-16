@@ -22,6 +22,8 @@ const handleCreateAccount = (
 
   localStorage.setItem("userData", JSON.stringify(userData));
 
+  console.log(localStorage.getItem("userData"));
+
   setShowSuccessMessage(true);
 
   setTimeout(() => {

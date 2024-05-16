@@ -5,11 +5,12 @@ export const ContainerPrincipal = styled.div`
   width: 100%;
   max-width: 1050px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  margin-top: 150px;
+  overflow-y: hidden;
 `;
 
 export const Carrosel = styled(motion.div)`

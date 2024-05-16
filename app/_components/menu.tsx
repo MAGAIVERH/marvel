@@ -18,6 +18,8 @@ const Menu = () => {
     username: "",
   });
 
+  const [currentPage, setCurrentPage] = useState("");
+
   useEffect(() => {
     const storedUserData = localStorage.getItem("userData");
 
@@ -40,7 +42,7 @@ const Menu = () => {
           </Link>
 
           <Link href="/hqs">
-            <MenuItem>HQs</MenuItem>
+            <MenuItem>Hqs</MenuItem>
           </Link>
         </MenuItems>
         <UserCircle>

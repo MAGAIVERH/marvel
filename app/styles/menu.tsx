@@ -63,6 +63,9 @@ export const MenuItem = styled.li`
   &:hover {
     color: white;
   }
+  .MenuItem.active {
+    color: #ffffff; /* Cor do texto quando ativo */
+  }
 `;
 
 export const UserCircle = styled.div`
