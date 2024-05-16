@@ -22,8 +22,8 @@ const FirstScreen: React.FC<{
   const [showMoveUp, setShowMoveUp] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
-  const [username, setUsername] = useState(""); // Estado para armazenar o nome de usuário
-  const [password, setPassword] = useState(""); // Estado para armazenar a senha do usuário
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
@@ -54,13 +54,11 @@ const FirstScreen: React.FC<{
   };
 
   const handleCreateAccount = () => {
-    // Coleta os dados do formulário (nome de usuário e senha)
     const userData = {
       username: username,
       password: password,
     };
 
-    // Passa os dados do formulário como propriedades para o componente Cadastro
     return (
       <CadastroForm
         username={userData.username}
@@ -114,7 +112,7 @@ const FirstScreen: React.FC<{
               type="password"
               placeholder="Senha"
               value={password}
-              onChange={(e) => setPassword(e.target.value)} // Atualiza o estado da senha do usuário
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit" onClick={handleCreateAccount}>
               Criar conta
@@ -159,7 +157,7 @@ const FirstScreen: React.FC<{
                 <p onClick={handleSignUpLinkClick}>Esqueci minha senha</p>
               </RememberMeContainer>
             </div>
-            <Link href="/home">
+            <Link href="/personagens">
               <button type="submit">Entrar</button>
             </Link>
 

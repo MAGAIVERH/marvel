@@ -42,7 +42,7 @@ const images = [
   spider,
 ];
 
-const Personagens = () => {
+const Hqs = () => {
   const [scrollIndex, setScrollIndex] = useState(0);
 
   const handleScroll = (direction: "left" | "right") => {
@@ -98,4 +98,4 @@ const Personagens = () => {
   );
 };
 
-export default Personagens;
+export default Hqs;

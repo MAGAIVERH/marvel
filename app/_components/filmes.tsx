@@ -45,6 +45,7 @@ const images = [
 const Personagens = () => {
   const [scrollIndex, setScrollIndex] = useState(0);
 
+  // Função para rolar para a esquerda ou direita
   const handleScroll = (direction: "left" | "right") => {
     if (direction === "left") {
       setScrollIndex((prevIndex) => Math.max(0, prevIndex - 1));
@@ -56,6 +57,7 @@ const Personagens = () => {
   return (
     <ContainerPrincipal>
       <ArrowButton>
+        {/* Exibir seta esquerda se houver espaço para rolar para a esquerda */}
         {scrollIndex > 0 && (
           <motion.div onClick={() => handleScroll("left")}>
             <LeftArrow>
@@ -66,6 +68,7 @@ const Personagens = () => {
       </ArrowButton>
       <Carrosel>
         <Fotos>
+          {/* Mapear apenas as quatro imagens visíveis */}
           {images.slice(scrollIndex, scrollIndex + 3).map((image, index) => (
             <Inner key={index}>
               <motion.div>
@@ -86,6 +89,7 @@ const Personagens = () => {
       </Carrosel>
 
       <ArrowButton>
+        {/* Exibir seta direita se houver espaço para rolar para a direita */}
         {scrollIndex < images.length - 3 && (
           <motion.div onClick={() => handleScroll("right")}>
             <RightArrow>

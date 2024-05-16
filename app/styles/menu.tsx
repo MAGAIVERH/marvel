@@ -16,7 +16,7 @@ export const MenuWrapper = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  width: 100%; /* Ajuste a largura conforme necessário */
+  width: 100%;
   height: 88%;
   overflow: hidden;
   position: absolute;
@@ -66,6 +66,9 @@ export const MenuItem = styled.li`
 `;
 
 export const UserCircle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 70px;
   margin-right: 10px;
   width: 40px;
@@ -74,6 +77,11 @@ export const UserCircle = styled.div`
   background-color: white;
   border-radius: 50%;
   cursor: pointer;
+
+  span {
+    color: black;
+    font-size: 20px;
+  }
 `;
 
 export const Logout = styled.a`

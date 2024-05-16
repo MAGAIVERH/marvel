@@ -17,14 +17,11 @@ interface SignUpFormContainerProps {
 export const SignUpFormContainer = styled.form<SignUpFormContainerProps>`
   position: absolute;
   top: 35%;
-  left: ${({ showForm }) =>
-    showForm
-      ? "24%"
-      : "-100%"}; /* Inicialmente, o formulário está fora da tela à esquerda */
+  left: ${({ showForm }) => (showForm ? "24%" : "-100%")};
   transform: translate(50%, -50%);
   padding: 20px;
   border-radius: 10px;
-  animation: ${slideFromLeftAnimation} 0.5s forwards; /* Adicionando a animação de deslizamento */
+  animation: ${slideFromLeftAnimation} 0.5s forwards;
 `;
 
 export const SignUpFormContent = styled.div`
@@ -62,7 +59,6 @@ export const SignUpFormContent = styled.div`
   }
 `;
 
-// Adicionando estilização para o componente Input
 export const Input = styled.input`
   width: 100%;
   height: 50px;
@@ -76,7 +72,6 @@ export const Input = styled.input`
   background-color: white;
 `;
 
-// Adicionando estilização para o componente Button
 export const Button = styled.button`
   width: 100%;
   height: 50px;
