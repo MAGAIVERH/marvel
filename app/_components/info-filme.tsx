@@ -24,6 +24,11 @@ import {
   Title,
   Nota,
   Text2,
+  NomeFilme,
+  Sinopse,
+  Informacao,
+  Imagem,
+  Avaliacao,
   CardsWrapper,
 } from "../styles/info-card-personagens";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -50,7 +55,7 @@ const images = [
   spider,
 ];
 
-const QuadroGeral = () => {
+const InfoFilmes = () => {
   const [scrollIndex, setScrollIndex] = useState(0);
   const [detailsVisible, setDetailsVisible] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -116,9 +121,40 @@ const QuadroGeral = () => {
                   {isSelected && (
                     <SideOverlay isLast={isLast}>
                       <DetailsOverlay>
-                        <Title>{cardsData[scrollIndex + index].nome}</Title>
-                        <Text2>{cardsData[scrollIndex + index].sobre}</Text2>
-                        <Nota>{cardsData[scrollIndex + index].nota}</Nota>
+                        <NomeFilme>
+                          {cardsData[scrollIndex + index].nomefilme}
+                        </NomeFilme>
+                        <Sinopse>
+                          {cardsData[scrollIndex + index].sinopse}
+                        </Sinopse>
+                        <Informacao>
+                          {cardsData[scrollIndex + index].informacao}
+                        </Informacao>
+                        <Imagem>
+                          <div
+                            style={{ borderRadius: "10px", overflow: "hidden" }}
+                          >
+                            <Image
+                              src="/sky.png"
+                              alt="Capa do Filme 1"
+                              width={50}
+                              height={50}
+                            />
+                          </div>
+                          <div
+                            style={{ borderRadius: "10px", overflow: "hidden" }}
+                          >
+                            <Image
+                              src="/amazon.jpeg"
+                              alt="Capa do Filme 1"
+                              width={50}
+                              height={50}
+                            />
+                          </div>
+                        </Imagem>
+                        <Avaliacao>
+                          {cardsData[scrollIndex + index].avaliacao}
+                        </Avaliacao>
                         <RatingStars
                           rating={cardsData[scrollIndex + index].rating}
                         />{" "}
@@ -146,4 +182,4 @@ const QuadroGeral = () => {
   );
 };
 
-export default QuadroGeral;
+export default InfoFilmes;

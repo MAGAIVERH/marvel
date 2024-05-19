@@ -1,29 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-export const Container = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Rectangle = styled.div`
-  position: relative;
-  width: 372px;
-  height: 106px;
-  background-color: rgb(255, 0, 0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 64px;
-  transition: transform 2s ease;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
 const slideInAnimation = keyframes`
   from {
     transform: translateX(100%);
@@ -34,28 +10,35 @@ const slideInAnimation = keyframes`
   }
 `;
 
-export const ImageContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  animation: ${slideInAnimation} 2s ease forwards;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+const slideInFromRight = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
   }
 `;
 
-interface FormProps {
-  showForm: boolean;
-}
+const slideUpAndOut = keyframes`
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(-230%);
+  }
+`;
+
+const slideInFromLeft = keyframes`
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+`;
 
 const slideFromLeftAnimation = keyframes`
   from {
@@ -81,17 +64,106 @@ const slideOutAnimation = keyframes`
   }
 `;
 
+const slideUpAnimation = keyframes`
+  from {
+    transform: translateY(400%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+`;
+
+export const Container = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
+`;
+
+export const Rectangle = styled.div`
+  position: relative;
+  width: 372px;
+  height: 106px;
+  background-color: rgb(255, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 64px;
+  transition: transform 2s ease;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 768px) {
+    width: 80%;
+    height: 80px;
+    font-size: 48px;
+    animation: ${slideInFromRight} 2s ease forwards,
+      ${slideUpAndOut} 2s 2s ease forwards;
+    margin-top: 50vh; /* Posiciona o retângulo na metade inferior da tela */
+    margin-left: auto; /* Mantém o alinhamento central */
+    margin-right: auto; /* Mantém o alinhamento central */
+    margin-top: -80px;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  animation: ${slideInAnimation} 2s ease forwards;
+
+  @media (max-width: 768px) {
+    display: none; /* Oculta completamente o ImageContainer na versão mobile */
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  }
+`;
+
+interface FormProps {
+  showForm: boolean;
+}
+
 export const Form = styled.form<FormProps>`
   position: absolute;
   top: 35%;
   left: ${({ showForm }) => (showForm ? "24%" : "50%")};
   transform: translate(50%, -50%);
-
   padding: 20px;
   border-radius: 10px;
   animation: ${({ showForm }) =>
       showForm ? slideFromLeftAnimation : slideOutAnimation}
     5s forwards;
+
+  @media (max-width: 768px) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    margin-top: -20vh;
+
+    h1 {
+      text-align: center;
+    }
+  }
 
   h1 {
     color: #d32f2f;
@@ -161,7 +233,6 @@ export const RememberMeContainer = styled.div`
   p {
     margin-left: 70px;
     margin-top: 5px;
-
     color: #666;
     border-bottom: 1px solid red;
     cursor: pointer;
@@ -185,6 +256,7 @@ export const DuasCores = styled.div`
 
 export const SegundoForm = styled.div`
   width: 330px;
+
   h1 {
     text-align: center;
     color: #d32f2f;

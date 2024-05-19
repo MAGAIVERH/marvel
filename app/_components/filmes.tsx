@@ -1,9 +1,9 @@
 "use client";
 
-import QuadroGeral from "./quadro-geral";
+import InfoFilmes from "./info-filme";
 
 const Filmes = () => {
-  return <QuadroGeral />;
+  return <InfoFilmes />;
 };
 
 export default Filmes;

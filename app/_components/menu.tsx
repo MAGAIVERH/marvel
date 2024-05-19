@@ -8,17 +8,20 @@ import {
   MenuItem,
   MenuItems,
   MenuWrapper,
+  SandwichIcon,
   UserCircle,
 } from "../styles/menu";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FaBars } from "react-icons/fa";
 
 const Menu = () => {
   const [userData, setUserData] = useState<{ username: string }>({
     username: "",
   });
-
   const [currentPage, setCurrentPage] = useState("");
+
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const storedUserData = localStorage.getItem("userData");
@@ -27,26 +30,45 @@ const Menu = () => {
       const userData = JSON.parse(storedUserData);
       setUserData(userData);
     }
+
+    if (typeof window !== "undefined") {
+      setCurrentPage(window.location.pathname);
+    }
   }, []);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <MenuWrapper>
+        <SandwichIcon onClick={toggleMenu}>
+          <FaBars />
+        </SandwichIcon>
         <Logo>MARVEL</Logo>
-        <MenuItems>
-          <Link href="/personagens">
-            <MenuItem>Personagens</MenuItem>
+        <MenuItems isOpen={isOpen}>
+          <Link href="/personagens" passHref>
+            <MenuItem
+              className={currentPage === "/personagens" ? "active" : ""}
+            >
+              Personagens
+            </MenuItem>
           </Link>
 
-          <Link href="/filmes">
-            <MenuItem>Filmes</MenuItem>
+          <Link href="/filmes" passHref>
+            <MenuItem className={currentPage === "/filmes" ? "active" : ""}>
+              Filmes
+            </MenuItem>
           </Link>
 
-          <Link href="/hqs">
-            <MenuItem>Hqs</MenuItem>
+          <Link href="/hqs" passHref>
+            <MenuItem className={currentPage === "/hqs" ? "active" : ""}>
+              Hqs
+            </MenuItem>
           </Link>
         </MenuItems>
         <UserCircle>
-          {/* Renderiza a primeira letra do nome do usuário dentro do círculo */}
           {userData?.username && (
             <span>{userData.username.charAt(0).toUpperCase()}</span>
           )}

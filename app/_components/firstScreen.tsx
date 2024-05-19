@@ -10,6 +10,7 @@ import {
   Form,
   SegundoForm,
 } from "../styles/tela-inicial01";
+
 import Image from "next/image";
 import CadastroForm from "./cadastro";
 import Link from "next/link";
