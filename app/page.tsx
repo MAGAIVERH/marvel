@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import FirstScreen from "./_components/firstScreen";
+import TelaInicial from "./_components/telaInicial";
 
 export default function Home() {
   const [showSignUpForm, setShowSignUpForm] = useState(false);
@@ -11,7 +11,7 @@ export default function Home() {
   };
   return (
     <div>
-      <FirstScreen onSignUpClick={handleSignUpClick} showForm={true} />
+      <TelaInicial onSignUpClick={handleSignUpClick} showForm={true} />
     </div>
   );
 }

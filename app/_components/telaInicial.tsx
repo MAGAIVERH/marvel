@@ -15,7 +15,7 @@ import Image from "next/image";
 import CadastroForm from "./cadastro";
 import Link from "next/link";
 
-const FirstScreen: React.FC<{
+const TelaInicial: React.FC<{
   onSignUpClick: () => void;
   showForm: boolean;
 }> = ({ onSignUpClick }) => {
@@ -177,4 +177,4 @@ const FirstScreen: React.FC<{
   );
 };
 
-export default FirstScreen;
+export default TelaInicial;

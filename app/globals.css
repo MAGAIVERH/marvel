@@ -111,10 +111,6 @@ a {
   src: url("../app/fonts/MarvelRegular-Dj83.ttf") format("truetype");
 }
 
-body {
-  font-family: "MarvelRegular", sans-serif;
-}
-
 @font-face {
   font-family: "Axiforma Black";
   src: url("../app/fonts/Axiforma/Kastelov - Axiforma Black.otf")
@@ -128,7 +124,7 @@ body {
 }
 
 body {
-  font-family: "Axiforma Regular", sans-serif;
+  font-family: "MarvelRegular", sans-serif;
 }
 
 h1 {
