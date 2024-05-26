@@ -1,6 +1,9 @@
+// menu.tsx
+
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   ImageContainer,
   Logo,
@@ -11,16 +14,17 @@ import {
   SandwichIcon,
   UserCircle,
 } from "../styles/menu";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 
-const Menu = () => {
+interface MenuProps {
+  pathname: string; // Definindo explicitamente o tipo de pathname como string
+}
+
+const Menu = ({ pathname }: MenuProps) => {
   const [userData, setUserData] = useState<{ username: string }>({
     username: "",
   });
-  const [currentPage, setCurrentPage] = useState("");
-
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -29,10 +33,6 @@ const Menu = () => {
     if (storedUserData) {
       const userData = JSON.parse(storedUserData);
       setUserData(userData);
-    }
-
-    if (typeof window !== "undefined") {
-      setCurrentPage(window.location.pathname);
     }
   }, []);
 
@@ -49,21 +49,19 @@ const Menu = () => {
         <Logo>MARVEL</Logo>
         <MenuItems isOpen={isOpen}>
           <Link href="/personagens" passHref>
-            <MenuItem
-              className={currentPage === "/personagens" ? "active" : ""}
-            >
+            <MenuItem className={pathname === "/personagens" ? "active" : ""}>
               Personagens
             </MenuItem>
           </Link>
 
           <Link href="/filmes" passHref>
-            <MenuItem className={currentPage === "/filmes" ? "active" : ""}>
+            <MenuItem className={pathname === "/filmes" ? "active" : ""}>
               Filmes
             </MenuItem>
           </Link>
 
           <Link href="/hqs" passHref>
-            <MenuItem className={currentPage === "/hqs" ? "active" : ""}>
+            <MenuItem className={pathname === "/hqs" ? "active" : ""}>
               Hqs
             </MenuItem>
           </Link>

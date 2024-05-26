@@ -1,12 +1,12 @@
 import React from "react";
 
-import Header from "../_components/header";
+// import Header from "../_components/header";
 import Hqs from "../_components/hqs";
 
 const HqsPage = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Hqs />
     </div>
   );

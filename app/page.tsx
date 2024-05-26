@@ -9,6 +9,7 @@ export default function Home() {
   const handleSignUpClick = () => {
     setShowSignUpForm(true);
   };
+
   return (
     <div>
       <TelaInicial onSignUpClick={handleSignUpClick} showForm={true} />

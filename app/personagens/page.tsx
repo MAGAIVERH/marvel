@@ -1,11 +1,11 @@
 import React from "react";
 import Personagens from "../_components/personagens";
-import Header from "../_components/header";
+// import Header from "../_components/header";
 
 const PersonagensPage = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Personagens />
     </div>
   );
